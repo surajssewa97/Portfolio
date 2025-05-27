@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Sanju - Digital Marketing & Social Media</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- Root Variables (Customize Fonts & Colors Here) --- */
+        :root {
+            --bg-primary: #121212; /* Very dark grey, almost black */
+            --bg-secondary: #1e1e1e; /* Slightly lighter dark grey */
+            --text-primary: #e0e0e0; /* Light grey for body */
+            --text-secondary: #ffffff; /* White for headings/highlights */
+            --accent-primary: #8A2BE2; /* Blue Violet */
+            --accent-secondary: #9932CC; /* Dark Orchid */
+            --border-color: #333333; /* Dark border */
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+
+            --nav-height: 70px;
+        }
+
+        /* --- Global Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; }
+        h2 { font-size: 2.5rem; margin-bottom: 2.5rem; text-align: center; }
+        h3 { font-size: 1.8rem; }
+        h4 { font-size: 1.3rem; }
+
+        p {
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-primary);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .text-accent {
+            color: var(--accent-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-primary);
+            color: var(--text-secondary);
+            padding: 12px 35px;
+            border-radius: 50px; /* Pill shape */
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-primary);
+            color: var(--text-secondary);
+        }
+
+
+        /* --- Navigation --- */
+        .navbar {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-secondary);
+            height: var(--nav-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-secondary);
+        }
+        .navbar .logo span {
+            color: var(--accent-primary);
+            font-weight: 400;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar nav ul li {
+            margin-left: 25px;
+        }
+
+        .navbar nav ul li a {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-family: var(--font-body);
+            padding: 5px 0;
+            position: relative;
+        }
+         .navbar nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+         }
+
+        .navbar nav ul li a:hover,
+        .navbar nav ul li a.active {
+            color: var(--text-secondary);
+        }
+        .navbar nav ul li a:hover::after,
+        .navbar nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle { display: none; } /* For mobile */
+
+
+        /* --- Hero Section (#home) --- */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: var(--bg-primary) url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            background-blend-mode: overlay; /* Blend image with dark background */
+            position: relative;
+            padding-top: var(--nav-height); /* Ensure content below nav */
+        }
+        #home::before { /* Dark overlay */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(18, 18, 18, 0.7);
+            z-index: 1;
+        }
+        #home .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        #home .sub-headline {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            color: var(--text-primary);
+        }
+        #home .btn {
+            margin: 0 10px;
+        }
+
+        /* --- About Section (#about) --- */
+        #about .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        #about .about-text {
+            flex: 2;
+        }
+        #about .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        #about .about-image img {
+            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border: 5px solid var(--accent-primary);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+        }
+        #about .about-text h3 {
+            margin-bottom: 0.5rem;
+        }
+        #about .about-text .role {
+            font-family: var(--font-heading);
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* --- Features/Approach Section --- */
+        #features {
+            background-color: var(--bg-secondary);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .feature-item {
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.15);
+            border-color: var(--accent-primary);
+        }
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Services Section (#services) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--bg-secondary);
+            padding: 35px;
+            border-radius: 10px;
+            text-align: left;
+            border-left: 5px solid var(--accent-primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Portfolio Section (#portfolio) --- */
+        #portfolio { background-color: var(--bg-secondary); }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .portfolio-item img {
+            display: block;
+            width: 100%;
+            transition: transform 0.4s ease;
+        }
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(138, 43, 226, 0.8);
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        .portfolio-item .overlay h4 { margin-bottom: 0.5rem; }
+        .portfolio-item .overlay p { font-size: 0.9rem; margin-bottom: 0; }
+
+        /* --- Testimonials Section (#testimonial) --- */
+        .testimonial-card {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 15px; /* For potential carousel spacing */
+            border-left: 4px solid var(--accent-secondary);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0, 0.2);
+        }
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent-primary);
+            display: inline-block;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        .testimonial-card .author {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .testimonial-card .company {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+        }
+        /* NOTE: A proper slider/carousel would require JS (like Owl Carousel, Swiper.js, or custom) */
+
+        /* --- Contact Section (#contact) --- */
+        #contact { background-color: var(--bg-secondary); }
+        .contact-content {
+            display: flex;
+            gap: 40px;
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        .contact-info h3 { margin-bottom: 2rem; }
+        .contact-info ul {
+            list-style: none;
+        }
+        .contact-info ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .contact-info ul li i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 25px; /* Align icons */
+            text-align: center;
+            padding-top: 3px;
+        }
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 8px rgba(138, 43, 226, 0.3);
+        }
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .contact-form .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: #0a0a0a; /* Even darker footer */
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+        .footer .social-links a {
+            color: #888;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer .social-links a:hover {
+            color: var(--accent-primary);
+        }
+        .footer p {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+        .footer p a { color: #aaa; }
+        .footer p a:hover { color: var(--accent-primary); }
+
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            .about-content { flex-direction: column; text-align: center; }
+            .about-image { margin-bottom: 30px; }
+            .contact-content { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav ul { display: none; } /* Hide for now, need JS for hamburger */
+            .menu-toggle {
+                display: block;
+                font-size: 1.8rem;
+                cursor: pointer;
+            }
+            /* Need JS to make hamburger work, but showing icon */
+            h1 { font-size: 2.5rem; }
+            #home h1 { font-size: 3rem; }
+            #home .sub-headline { font-size: 1.2rem; }
+            section { padding: 60px 0; }
+            .btn { padding: 10px 25px; font-size: 0.8rem; }
+            .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Thank You <span>Sanju</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonial">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"> <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h1>Ignite Your <span class="text-accent">Digital Presence</span></h1>
+            <p class="sub-headline">We're Thank You Sanju, a digital marketing agency fueled by passion and led by Sanju. We craft strategies that resonate and results that matter.</p>
+            <a href="#services" class="btn">Our Services</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Meet The <span class="text-accent">Strategist</span></h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/280/8A2BE2/FFFFFF?text=Sanju" alt="Sanju - Founder & Social Media Manager">
+                </div>
+                <div class="about-text">
+                    <h3>Sanju</h3>
+                    <span class="role">Founder & Lead Social Media Manager</span>
+                    <p>With a deep understanding of the ever-evolving digital landscape, Sanju founded 'Thank You Sanju' to deliver marketing solutions that aren't just effective, but authentic. Specializing in social media that builds communities and drives engagement, Sanju leads every project with a hands-on approach.</p>
+                    <p>We believe in building partnerships, understanding your unique voice, and translating it into digital success. We're not just a service; we're your dedicated digital growth partner.</p>
+                    <a href="#contact" class="btn">Let's Connect</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Our <span class="text-accent">Approach</span></h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-palette"></i>
+                    <h3>Modern & Professional Design</h3>
+                    <p>We create visually stunning and user-friendly digital assets that reflect your brand's quality.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Fast-Loading Experiences</h3>
+                    <p>Performance matters. Our web solutions are optimized for speed, ensuring a seamless user journey.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customizable & Flexible</h3>
+                    <p>Tailored strategies and designs. We offer fine-tuning to meet your exact needs and vision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>What We <span class="text-accent">Offer</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Management</h3>
+                    <p>Engage, grow, and convert your audience with strategic content and community management across all platforms.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Digital Advertising (PPC)</h3>
+                    <p>Targeted ad campaigns on Google, Facebook, Instagram & more to drive traffic and generate leads.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Strategy</h3>
+                    <p>Improve your visibility on search engines and attract organic traffic with our proven SEO techniques.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>Content Creation</h3>
+                    <p>Compelling copy, stunning visuals, and engaging videos designed to capture attention and tell your story.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics & Reporting</h3>
+                    <p>Data-driven insights to measure success, refine strategies, and maximize your ROI.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Design & Development</h3>
+                    <p>Modern, responsive, and fast websites (compatible with Elementor & more) that convert visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Our <span class="text-accent">Work</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/333/fff?text=Project+One" alt="Project One">
+                    <div class="overlay">
+                        <h4>Client A - Social Campaign</h4>
+                        <p>Increased engagement by 300%</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/444/fff?text=Project+Two" alt="Project Two">
+                    <div class="overlay">
+                        <h4>Client B - Website Redesign</h4>
+                        <p>Modern look, faster loads, higher conversion.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/555/fff?text=Project+Three" alt="Project Three">
+                    <div class="overlay">
+                        <h4>Client C - SEO Overhaul</h4>
+                        <p>Top 3 ranking for key terms achieved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonial">
+        <div class="container">
+            <h2>Client <span class="text-accent">Love</span></h2>
+            <div class="testimonial-card">
+                <img src="https://via.placeholder.com/80/eee/333?text=Client+1" alt="Client 1">
+                <p class="quote">"Sanju and the team transformed our social media presence. We've never been more connected with our audience!"</p>
+                <p class="author">Alex Johnson</p>
+                <p class="company">CEO, Innovate Solutions</p>
+            </div>
+             <div class="testimonial-card" style="margin-top: 30px;">
+                <img src="https://via.placeholder.com/80/ddd/333?text=Client+2" alt="Client 2">
+                <p class="quote">"Professional, insightful, and delivered results beyond our expectations. Highly recommend Thank You Sanju!"</p>
+                <p class="author">Maria Garcia</p>
+                <p class="company">Founder, Local Gems</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In <span class="text-accent">Touch</span></h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Project</h3>
+                    <p>Ready to elevate your digital marketing? Reach out today for a consultation. We're excited to hear from you and explore how we can help your brand grow.</p>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Your Business Address, City, Country</li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@thankyousanju.com">hello@thankyousanju.com</a></li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+911234567890">+91 12345 67890</a></li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST"> <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Thank You Sanju. All Rights Reserved. | Designed with <i class="fa fa-heart text-accent"></i></p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for active navigation link highlighting on scroll (basic version)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLi = document.querySelectorAll('.navbar nav ul li a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Adjust offset for nav height
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3 - 70)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLi.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') == '#' + current) {
+                        a.classList.add('active');
+                    }
+                });
+                 // Ensure home is active at top
+                if (pageYOffset < 300) {
+                   navLi.forEach(a => a.classList.remove('active'));
+                   document.querySelector('.navbar nav ul li a[href="#home"]').classList.add('active');
+                }
+            });
+
+             // --- Mobile Menu Toggle (Basic Placeholder - Needs more JS for full functionality) ---
+             const menuToggle = document.querySelector('.menu-toggle');
+             const nav = document.querySelector('.navbar nav ul'); // Needs modification in HTML/CSS for mobile display
+
+             if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                   alert('Mobile menu functionality requires more JavaScript and CSS adjustments.');
+                   // In a real build: nav.classList.toggle('show-mobile-menu');
+                });
+             }
+
+        });
+    </script>
+
+</body>
+</html>
