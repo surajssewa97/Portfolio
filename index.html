@@ -205,7 +205,7 @@
             width: 100%;
         }
 
-        .menu-toggle { display: none; } /* For mobile */
+        .menu-toggle { display: none; } /* Hidden by default on desktop */
 
 
         /* --- Hero Section (#home) --- */
@@ -373,39 +373,104 @@
         .portfolio-item .overlay p { font-size: 0.9rem; margin-bottom: 0; }
 
         /* --- Testimonials Section (#testimonial) --- */
-        .testimonial-card {
-            background: var(--bg-secondary);
-            padding: 30px;
-            border-radius: 8px;
-            margin: 15px; /* For potential carousel spacing */
-            border-left: 4px solid var(--accent-secondary);
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0, 0.2);
+        #testimonial {
+            background-color: var(--bg-primary);
+            text-align: center; /* Center the heading block */
         }
-        .testimonial-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            border: 3px solid var(--accent-primary);
-            display: inline-block;
-        }
-        .testimonial-card .quote {
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-        .testimonial-card .author {
-            font-family: var(--font-heading);
-            font-weight: 600;
+
+        #testimonial h2 {
+            position: relative;
+            display: inline-block; /* To make ribbon fit content */
+            padding: 10px 40px;
+            background-color: #008000; /* Green like the image */
             color: var(--text-secondary);
+            font-size: 2rem;
+            margin-bottom: 70px; /* Space below heading + space for images */
+            border-radius: 3px;
+            font-weight: 600;
         }
-        .testimonial-card .company {
-            font-size: 0.9rem;
-            color: var(--accent-primary);
+
+        /* Simple ribbon effect */
+        #testimonial h2::after {
+            content: '';
+            position: absolute;
+            top: 100%; /* Position below the main box */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #005000; /* Darker green for triangle */
         }
-        /* NOTE: A proper slider/carousel would require JS (like Owl Carousel, Swiper.js, or custom) */
+        #testimonial h2 .review-text {
+            font-weight: 400; /* Make 'Review' less bold if needed */
+        }
+
+
+        .testimonial-grid-new {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px; /* Space between cards */
+            justify-content: center;
+            text-align: left; /* Reset text-align for grid items */
+        }
+
+        .testimonial-card-new {
+            background: var(--bg-secondary); /* Dark background for card */
+            border: 1px solid var(--border-color); /* Light border */
+            border-radius: 8px;
+            padding: 65px 25px 25px 25px; /* More padding top for image space */
+            text-align: center; /* Center content within card */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: relative; /* For image positioning */
+            min-height: 300px; /* Give some min height */
+        }
+
+        .testimonial-card-new:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        .testimonial-card-new img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid #fff; /* White border like image */
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            position: absolute;
+            top: -45px; /* Position half-way above the card */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-secondary);
+            object-fit: cover;
+        }
+
+        .testimonial-card-new .quote-new {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            font-style: normal; /* Match image text */
+            line-height: 1.6;
+        }
+
+        .testimonial-card-new .author-new {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .testimonial-card-new .stars-new {
+            color: #f39c12; /* Orange-Gold color for stars */
+            font-size: 1rem;
+        }
+         .testimonial-card-new .stars-new .far { /* Optional empty star */
+             color: #555;
+         }
 
         /* --- Contact Section (#contact) --- */
         #contact { background-color: var(--bg-secondary); }
@@ -500,28 +565,137 @@
 
 
         /* --- Responsive Styles --- */
+
+        /* Tablet and Smaller Desktops */
         @media (max-width: 992px) {
             h1 { font-size: 3rem; }
             h2 { font-size: 2.2rem; }
-            .about-content { flex-direction: column; text-align: center; }
-            .about-image { margin-bottom: 30px; }
+            #home h1 { font-size: 3.5rem; } /* Keep hero H1 a bit larger */
+            #home .sub-headline { font-size: 1.3rem; }
+            section { padding: 60px 0; }
+            .btn { padding: 10px 30px; font-size: 0.85rem; }
+
+            /* About Section */
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            #about .about-image { margin-bottom: 20px; }
+            #about .about-image img {
+                width: 220px;
+                height: 220px;
+            }
+
+            /* Contact Section */
             .contact-content { flex-direction: column; }
+            .contact-info, .contact-form { padding: 0; } /* Remove extra padding on inner elements */
+            .contact-content { padding: 30px; }
+            .contact-form .btn { width: auto; min-width: 180px; } /* Adjust button width */
         }
 
+        /* Mobile Devices */
         @media (max-width: 768px) {
-            .navbar nav ul { display: none; } /* Hide for now, need JS for hamburger */
-            .menu-toggle {
+            .navbar nav ul { /* Hide the desktop menu */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.95);
+                border-top: 1px solid var(--border-color);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                max-height: 0; /* Hidden by default */
+                overflow: hidden;
+                transition: max-height 0.5s ease-in-out;
+            }
+
+            .navbar nav ul.show-mobile-menu { /* Class added by JS to show menu */
+                display: flex;
+                max-height: 300px; /* Adjust based on content */
+            }
+
+            .navbar nav ul li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+            .navbar nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            .navbar nav ul li a {
+                padding: 15px 20px;
                 display: block;
+                width: 100%;
+                text-align: center;
+                color: var(--text-primary);
+            }
+            .navbar nav ul li a:hover,
+            .navbar nav ul li a.active {
+                background-color: var(--accent-primary);
+                color: var(--text-secondary);
+            }
+             .navbar nav ul li a::after { /* Hide underline for mobile */
+                display: none;
+             }
+
+
+            .menu-toggle {
+                display: block; /* Show the hamburger icon */
                 font-size: 1.8rem;
                 cursor: pointer;
+                color: var(--text-secondary);
             }
-            /* Need JS to make hamburger work, but showing icon */
+
             h1 { font-size: 2.5rem; }
             #home h1 { font-size: 3rem; }
-            #home .sub-headline { font-size: 1.2rem; }
-            section { padding: 60px 0; }
-            .btn { padding: 10px 25px; font-size: 0.8rem; }
-            .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            #home .sub-headline { font-size: 1.1rem; }
+            #home .btn { margin: 10px 5px; padding: 10px 20px; font-size: 0.8rem; }
+            #home .btn-outline { margin-top: 15px; } /* Give some space */
+
+            /* Sections Padding */
+            section { padding: 50px 0; }
+
+            /* Grid Layouts for Mobile */
+            .features-grid, .services-grid, .portfolio-grid, .testimonial-grid-new {
+                grid-template-columns: 1fr;
+                gap: 40px; /* Adjust gaps for single column */
+            }
+            .testimonial-card-new { min-height: auto; } /* Allow height to adjust */
+
+            /* Contact form on mobile */
+            .contact-content { padding: 25px; }
+            .contact-info ul li {
+                font-size: 1rem;
+            }
+            .contact-info ul li i {
+                font-size: 1.3rem;
+                margin-right: 10px;
+                width: 20px;
+            }
+
+            /* Testimonial specific */
+            #testimonial h2 {
+                font-size: 1.8rem;
+                padding: 8px 30px;
+                margin-bottom: 60px;
+            }
+        }
+
+        /* Small Mobile Devices (e.g., iPhone 5/SE) */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            #home h1 { font-size: 2.5rem; }
+            #home .sub-headline { font-size: 1rem; }
+            .btn { padding: 8px 18px; font-size: 0.75rem; }
+            h2 { font-size: 2rem; margin-bottom: 2rem; }
+            h3 { font-size: 1.6rem; }
+            .container { padding: 0 10px; } /* tighter container */
+            .about-image img { width: 180px; height: 180px; }
+            .service-card, .feature-item, .testimonial-card-new { padding: 25px 15px; }
+            .contact-info ul li { font-size: 0.95rem; }
+            #testimonial h2 { font-size: 1.5rem; }
         }
 
     </style>
@@ -532,7 +706,7 @@
         <div class="container">
             <a href="#home" class="logo">Thank You <span>Sanju</span></a>
             <nav>
-                <ul>
+                <ul id="main-nav-list">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -633,158 +807,6 @@
             </div>
         </div>
     </section>
-<!--
-    <section id="portfolio">
-        <div class="container">
-            <h2>Our <span class="text-accent">Work</span></h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/333/fff?text=Project+One" alt="Project One">
-                    <div class="overlay">
-                        <h4>Client A - Social Campaign</h4>
-                        <p>Increased engagement by 300%</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/444/fff?text=Project+Two" alt="Project Two">
-                    <div class="overlay">
-                        <h4>Client B - Website Redesign</h4>
-                        <p>Modern look, faster loads, higher conversion.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/555/fff?text=Project+Three" alt="Project Three">
-                    <div class="overlay">
-                        <h4>Client C - SEO Overhaul</h4>
-                        <p>Top 3 ranking for key terms achieved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
-    <style>
-    /* --- New Testimonial Section Styles --- */
-    #testimonial {
-        background-color: var(--bg-primary);
-        text-align: center; /* Center the heading block */
-    }
-
-    #testimonial h2 {
-        position: relative;
-        display: inline-block; /* To make ribbon fit content */
-        padding: 10px 40px;
-        background-color: #008000; /* Green like the image */
-        color: var(--text-secondary);
-        font-size: 2rem;
-        margin-bottom: 70px; /* Space below heading + space for images */
-        border-radius: 3px;
-        font-weight: 600;
-    }
-
-    /* Simple ribbon effect */
-    #testimonial h2::after {
-        content: '';
-        position: absolute;
-        top: 100%; /* Position below the main box */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-top: 15px solid #005000; /* Darker green for triangle */
-    }
-    #testimonial h2 .review-text {
-        font-weight: 400; /* Make 'Review' less bold if needed */
-    }
-
-
-    .testimonial-grid-new {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 50px; /* Space between cards */
-        justify-content: center;
-        text-align: left; /* Reset text-align for grid items */
-    }
-
-    .testimonial-card-new {
-        background: var(--bg-secondary); /* Dark background for card */
-        border: 1px solid var(--border-color); /* Light border */
-        border-radius: 8px;
-        padding: 65px 25px 25px 25px; /* More padding top for image space */
-        text-align: center; /* Center content within card */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-        position: relative; /* For image positioning */
-        min-height: 300px; /* Give some min height */
-    }
-
-    .testimonial-card-new:hover {
-        transform: translateY(-5px);
-        border-color: var(--accent-primary);
-    }
-
-    .testimonial-card-new img {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        border: 4px solid #fff; /* White border like image */
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        position: absolute;
-        top: -45px; /* Position half-way above the card */
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: var(--bg-secondary);
-        object-fit: cover;
-    }
-
-    .testimonial-card-new .quote-new {
-        font-size: 0.95rem;
-        color: var(--text-primary);
-        margin-bottom: 1.5rem;
-        font-weight: 300;
-        font-style: normal; /* Match image text */
-        line-height: 1.6;
-    }
-
-    .testimonial-card-new .author-new {
-        font-family: var(--font-heading);
-        font-weight: 700;
-        color: var(--text-secondary);
-        margin-bottom: 0.5rem;
-        font-size: 1.3rem;
-    }
-
-    .testimonial-card-new .stars-new {
-        color: #f39c12; /* Orange-Gold color for stars */
-        font-size: 1rem;
-    }
-     .testimonial-card-new .stars-new .far { /* Optional empty star */
-         color: #555;
-     }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-        .testimonial-grid-new {
-             grid-template-columns: 1fr;
-             gap: 70px; /* Increase gap to account for image overlap */
-        }
-         #testimonial h2 {
-            font-size: 1.6rem;
-            padding: 8px 25px;
-         }
-    }
-     @media (max-width: 480px) {
-        .testimonial-card-new {
-             padding: 60px 20px 20px 20px;
-        }
-         #testimonial h2 {
-            font-size: 1.4rem;
-         }
-    }
-</style>
-
 <section id="testimonial">
     <div class="container">
         <h2>Customer's <span class="review-text">Review</span></h2>
@@ -815,7 +837,7 @@
             </div>
 
             <div class="testimonial-card-new">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAidJ3U-eRoXICW6aGac54sr9qzesX0us4P57RBn_LOWZM_CH8u4KpwMlLWGuv5yyNmPz4YLAWDX0N9jjoZloVvHLIsvpiyrM5Va4bBqcyY-x2U6YqsBWsCnYUClbyNGimAR3W8_12V1LsML8NcjPQ2VFh8tDuT_YnUQ_xQ1tShhc0U_UovKldx3RMkhQ/s400/Ather%20bg%20logo.png" alt="Customer 3">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAidJ3U-eRoXICW6aGac54sr9qzesX0us4P57RBn_LOWZM_CH8u4KpwMlLWGuv5yyNmPz4YLAWDX0N9jjoZloVvHLIsvpiyrM5Va4bBqcyY-x2U6YqsBWsCnYUClbyNGimAR3W8_12V1LsML8NcjPQ2VFh8tDuT_YnUQ_xQ1tShhc0U_UovKldx3RMkhU/s400/Ather%20bg%20logo.png" alt="Customer 3">
                 <p class="quote-new">"Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Unde Sunt Fugiat Dolore Ipsum Id Est Maximae Ad Tempore Quasi Tenetur."</p>
                 <p class="author-new">Anurag Agarwala</p>
                 <div class="stars-new">
@@ -882,7 +904,7 @@
     </footer>
 
     <script>
-        // Simple script for active navigation link highlighting on scroll (basic version)
+        // Simple script for active navigation link highlighting on scroll
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const navLi = document.querySelectorAll('.navbar nav ul li a');
@@ -892,15 +914,15 @@
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    // Adjust offset for nav height
-                    if (pageYOffset >= (sectionTop - sectionHeight / 3 - 70)) {
+                    // Adjusted offset for nav height and better detection
+                    if (pageYOffset >= (sectionTop - sectionHeight * 0.3 - 70)) {
                         current = section.getAttribute('id');
                     }
                 });
 
                 navLi.forEach(a => {
                     a.classList.remove('active');
-                    if (a.getAttribute('href') == '#' + current) {
+                    if (a.getAttribute('href') === '#' + current) {
                         a.classList.add('active');
                     }
                 });
@@ -911,17 +933,35 @@
                 }
             });
 
-             // --- Mobile Menu Toggle (Basic Placeholder - Needs more JS for full functionality) ---
+             // --- Mobile Menu Toggle Functionality ---
              const menuToggle = document.querySelector('.menu-toggle');
-             const nav = document.querySelector('.navbar nav ul'); // Needs modification in HTML/CSS for mobile display
+             const mainNavList = document.getElementById('main-nav-list');
 
-             if (menuToggle) {
+             if (menuToggle && mainNavList) {
                 menuToggle.addEventListener('click', () => {
-                   alert('Mobile menu functionality requires more JavaScript and CSS adjustments.');
-                   // In a real build: nav.classList.toggle('show-mobile-menu');
+                   mainNavList.classList.toggle('show-mobile-menu');
+                   // Toggle hamburger icon
+                   const icon = menuToggle.querySelector('i');
+                   if (mainNavList.classList.contains('show-mobile-menu')) {
+                       icon.classList.remove('fa-bars');
+                       icon.classList.add('fa-times'); // 'X' icon
+                   } else {
+                       icon.classList.remove('fa-times');
+                       icon.classList.add('fa-bars'); // Hamburger icon
+                   }
+                });
+
+                // Close mobile menu when a link is clicked
+                mainNavList.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (mainNavList.classList.contains('show-mobile-menu')) {
+                            mainNavList.classList.remove('show-mobile-menu');
+                            menuToggle.querySelector('i').classList.remove('fa-times');
+                            menuToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
                 });
              }
-
         });
     </script>
 
